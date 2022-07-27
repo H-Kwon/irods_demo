@@ -6,6 +6,8 @@ RUN wget -qO - https://packages.irods.org/irods-signing-key.asc | sudo apt-key a
     echo "deb [arch=amd64] https://packages.irods.org/apt/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/renci-irods.list && \
     sudo apt-get update
 
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y irods-runtime=4.2.8 irods-icommands=4.2.8 irods-server=4.2.8
 RUN wget -O /davrods.deb https://github.com/UtrechtUniversity/davrods/releases/download/4.2.8_1.5.0/davrods-4.2.8-1.5.0.deb && apt install -y /davrods.deb
 
 RUN sed -i "s/^#//g" /etc/apache2/sites-available/davrods-vhost.conf

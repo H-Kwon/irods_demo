@@ -20,7 +20,9 @@ ARG _sha="1.0.0"
 RUN git clone https://github.com/${_github_account}/irods_client_nfsrods
 
 RUN cd irods_client_nfsrods && \
-    git checkout ${_sha} && \
+    git checkout ${_sha}
+COPY pom.xml /irods_client_nfsrods/
+RUN cd irods_client_nfsrods && \
     mvn clean install -Dmaven.test.skip=true
 
 RUN curl -fSL https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz -o dockerize-linux-amd64-v0.6.1.tar.gz \

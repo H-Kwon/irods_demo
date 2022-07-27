@@ -8,6 +8,9 @@ RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get install -y sudo wget lsb-release apt-transport-https apt-utils python3-pip redis-server curl python3
 
+# To avoid "bind: Cannot assign requested address" error
+RUN sed -i.bak 's/^bind 127.0.0.1 ::1/bind 0.0.0.0/' /etc/redis/redis.conf
+
 # Install icommands to create environment file
 RUN wget -qO - https://packages.irods.org/irods-signing-key.asc | apt-key add -; \
     echo "deb [arch=amd64] https://packages.irods.org/apt/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/renci-irods.list; \

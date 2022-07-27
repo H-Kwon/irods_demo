@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>org.irods.jargon</groupId>
+        <artifactId>nfs4j-irodsvfs-pom</artifactId>
+        <version>1.0.0</version>
+        <parent>
+                <groupId>org.irods</groupId>
+                <artifactId>jargon-pom</artifactId>
+                <version>4.3.1.0-SNAPSHOT</version>
+        </parent>
+        <packaging>pom</packaging>
+        <name>nfs4j-irodsvfs</name>
+        <description>iRODS NFS4J Virtual File System</description>
+        <properties>
+                <jargon.version>4.3.1.0-SNAPSHOT</jargon.version>
+        </properties>
+        <organization>
+                <name>iRODS Consortium</name>
+                <url>https://irods.org</url>
+        </organization>
+        <repositories>
+                <repository>
+                        <id>dice.repository</id>
+                        <name>dice.repository</name>
+                        <url>https://raw.github.com/DICE-UNC/DICE-Maven/master/releases</url>
+                        <releases>
+                                <enabled>true</enabled>
+                        </releases>
+                        <snapshots>
+                                <enabled>true</enabled>
+                                <updatePolicy>always</updatePolicy>
+                                <checksumPolicy>warn</checksumPolicy>
+                        </snapshots>
+                </repository>
+                <repository>
+                        <id>dice.repository snaps</id>
+                        <name>dice.repository.snapshots</name>
+                        <url>https://raw.github.com/DICE-UNC/DICE-Maven/master/snapshots</url>
+                        <releases>
+                                <enabled>true</enabled>
+                        </releases>
+                        <snapshots>
+                                <enabled>true</enabled>
+                                <updatePolicy>always</updatePolicy>
+                                <checksumPolicy>warn</checksumPolicy>
+                        </snapshots>
+                </repository>
+                <repository>
+                        <id>dcache-releases</id>
+                        <name>dCache.ORG maven repository</name>
+                        <url>https://download.dcache.org/nexus/content/repositories/releases</url>
+                        <layout>default</layout>
+                </repository>
+                <repository>
+                        <id>oracleReleases</id>
+                        <name>Oracle Released Java Packages</name>
+                        <url>http://download.oracle.com/maven</url>
+                        <layout>default</layout>
+                </repository>
+        </repositories>
+        <developers>
+                <developer>
+                        <id>korydraughn</id>
+                        <name>Kory Draughn</name>
+                        <email>info@irods.org</email>
+                        <organization>iRODS Consortium</organization>
+                        <organizationUrl>https://irods.org</organizationUrl>
+                        <roles>
+                                <role>developer</role>
+                        </roles>
+                </developer>
+        </developers>
+        <dependencyManagement>
+                <dependencies>
+                        <dependency>
+                                <groupId>org.dcache</groupId>
+                                <artifactId>nfs4j-core</artifactId>
+                                <version>0.18.2</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.irods.jargon</groupId>
+                                <artifactId>jargon-core</artifactId>
+                                <version>${jargon.version}</version>
+                        </dependency>
+                </dependencies>
+        </dependencyManagement>
+        <dependencies>
+                <dependency>
+                        <groupId>org.mockito</groupId>
+                        <artifactId>mockito-all</artifactId>
+                        <scope>test</scope>
+                </dependency>
+                <dependency>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                        <scope>test</scope>
+                </dependency>
+        </dependencies>
+        <build>
+                <plugins />
+        </build>
+        <modules>
+                <module>irods-vfs-impl</module>
+        </modules>
+</project>
