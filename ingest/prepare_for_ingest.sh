@@ -11,7 +11,7 @@ export PYTHONPATH=`pwd`
 
 # authenticate as an iRODS user
 export IRODS_ENVIRONMENT_FILE=/ingest/irods_environment.json
-iinit rods
+echo rods | iinit rods
 
 # start Celery workers
 celery -A irods_capability_automated_ingest.sync_task worker -l error -Q restart,path,file -c 4 &
